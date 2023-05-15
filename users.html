@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" xmlns:text-align="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Connect Flask to MySQLDB</title>
+    <link rel="stylesheet" href="static/css/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<style>
+    table {
+
+    }
+    th {
+        background-color: #04AA6D;
+        color: white;
+        border-bottom: 1px solid #ddd;
+        padding: 15px;
+   }
+   td {
+       text-align: center;
+       border-bottom: 1px solid #ddd;
+       padding: 15px;
+   }
+   tr:hover {background-color: coral;}
+</style>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">GCTU</label>
+        <ul>
+          <li><a class="active" onclick="window.location.href='{{url_for('index')}}';">users</a></li>
+          <li><a onclick="window.location.href='{{url_for('gctu_entry')}}';">gctu entry</a></li>
+          <li><a onclick="window.location.href='{{url_for('gctu_exit')}}';">gctu exit</a></li>
+          <li><a onclick="window.location.href='{{url_for('guest_entry')}}';">guest entry</a></li>
+          <li><a onclick="window.location.href='{{url_for('guest_exit')}}';">guest exit</a></li>
+        </ul>
+    </nav>
+<h1 text-align:center;>Registered Users</h1>
+
+
+
+   {% if result %}
+      <table id="", style="width:100">
+          <tbody>
+          <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Role</th>
+              <th>Phone</th>
+              <th>Number_Plate</th>
+          </tr>
+   {% for row in result %}
+          <tr>
+              <td>{{ row.id }}</td>
+              <td>{{ row.Name }}</td>
+              <td>{{ row.Gender }}</td>
+              <td>{{ row.Role }}</td>
+              <td>{{ row.Phone }}</td>
+              <td>{{ row.Number_Plate }}</td>
+          </tr>
+   {% endfor %}
+          </tbody>
+      </table>
+   {% endif %}
+   <section></section>
+</body>
+</html>
